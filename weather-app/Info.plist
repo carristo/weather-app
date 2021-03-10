@@ -62,5 +62,26 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+    		<key>NSExceptionDomains</key>
+    		<dict>
+        		<key>weatherstack.com</key>
+        		<dict>
+            			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+            			<true/>
+            			<key>NSIncludesSubdomains</key>
+           			<true/>
+        		</dict>
+    		</dict>
+	</dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Description</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Description</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Description</string>
 </dict>
 </plist>

@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weather_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TfP-gc-59Z">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ao1-ad-ngP">
+                                <rect key="frame" x="0.0" y="414" width="414" height="68.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-2P-a3Z">
+                                <rect key="frame" x="63" y="492.5" width="288.5" height="68.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ao1-ad-ngP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A8F-c5-u8b"/>
+                            <constraint firstItem="6xw-2P-a3Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BzS-ho-VUq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ao1-ad-ngP" secondAttribute="trailing" id="COv-Sc-sqC"/>
+                            <constraint firstItem="Ao1-ad-ngP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JaW-S7-sI1"/>
+                            <constraint firstItem="Ao1-ad-ngP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L13-ah-GsN"/>
+                            <constraint firstItem="TfP-gc-59Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wev-Sx-nFm"/>
+                            <constraint firstItem="6xw-2P-a3Z" firstAttribute="top" secondItem="Ao1-ad-ngP" secondAttribute="bottom" constant="10" id="bct-FR-Ckr"/>
+                            <constraint firstItem="TfP-gc-59Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qis-Cd-jfJ"/>
+                            <constraint firstItem="TfP-gc-59Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vSM-XH-xgA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="Ao1-ad-ngP" id="9bF-tG-uCl"/>
+                        <outlet property="searchBar" destination="TfP-gc-59Z" id="A5f-Dr-fFS"/>
+                        <outlet property="temperatureLabel" destination="6xw-2P-a3Z" id="3bx-15-hSJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="122" y="119"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
