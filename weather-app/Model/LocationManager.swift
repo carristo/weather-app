@@ -26,7 +26,7 @@ class LocationManager : NSObject {
     func getPlace(for location: CLLocation,
                   completion: @escaping (CLPlacemark?) -> Void) {
         let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(location) { placemarks, error in
+        geoCoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "en_US")) { placemarks, error in
             guard error == nil else {
                 print("*** Error in \(#function): \(error!.localizedDescription)")
                 completion(nil)
