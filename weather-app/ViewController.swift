@@ -14,59 +14,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    let locationManager = LocationManager()
+    let requestHelper = RequestHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         searchBar.delegate = self
+        
+        guard let exposedLocation = self.locationManager.exposedLocation else {
+            print("*** Error in \(#function): exposed location is nil")
+            return
+        }
+        
+        self.locationManager.getPlace(for: exposedLocation) { placemark in
+            guard let placemark = placemark else {return}
+            if let town = placemark.locality {
+                self.searching(cityName: town)
+            }
+        }
+        
+        
+        
+        
+    }
+    func searching(cityName: String) {
+        requestHelper.getTemperatureForCity(city: cityName) { result in
+            DispatchQueue.main.async {
+                if result.0 == "ERROR" {
+                    self.temperatureLabel.isHidden = true
+                    self.cityLabel.text = "Error has occured"
+                } else {
+                    self.cityLabel.text = result.0
+                    self.temperatureLabel.text = "\(result.1)"
+                    self.temperatureLabel.isHidden = false
+                }
+            }
+        }
     }
 }
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         searchBar.resignFirstResponder()
-        let urlString = "http://api.weatherstack.com/current?access_key=77033fdf6722714ebda1ca8b472128e1&query=\(searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "%20"))"
         
-        let url = URL.init(string: urlString)
+        guard let cityName = searchBar.text else {return}
         
-        var locationName : String?
-        var celsiumTemperature : Double?
-        var errorHasOccured : Bool = false
-         
-        let task = URLSession.shared.dataTask(with: url!) {[weak self] (data, response, error) in
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                    as! [String : AnyObject]
-                
-                if let _ = json["error"] {
-                    errorHasOccured = true
-                }
-                
-                if let location = json["location"]  {
-                    locationName = location["name"] as? String
-                }
-                
-                if let current = json["current"] {
-                    celsiumTemperature = current["temperature"] as? Double
-                }
-                DispatchQueue.main.async {
-                    if errorHasOccured {
-                        self?.temperatureLabel.isHidden = true
-                        self?.cityLabel.text = "Error has occured"
-                    } else {
-                        self?.cityLabel.text = locationName
-                        self?.temperatureLabel.text = "\(celsiumTemperature!)"
-                        self?.temperatureLabel.isHidden = false
-                    }
-                }
-                
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-        }
-        
-        task.resume()
+        searching(cityName: cityName)
     }
 }

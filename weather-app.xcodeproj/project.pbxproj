@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846101EA25FA5C6B00116E3A /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846101E925FA5C6B00116E3A /* RequestHelper.swift */; };
+		847BDB3125F91184000CFE4B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847BDB3025F91184000CFE4B /* LocationManager.swift */; };
 		84B8D44B25F89E25003116D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8D44A25F89E25003116D4 /* AppDelegate.swift */; };
 		84B8D44D25F89E25003116D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8D44C25F89E25003116D4 /* SceneDelegate.swift */; };
 		84B8D44F25F89E25003116D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8D44E25F89E25003116D4 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		846101E925FA5C6B00116E3A /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
+		847BDB3025F91184000CFE4B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		84B8D44725F89E25003116D4 /* weather-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B8D44A25F89E25003116D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B8D44C25F89E25003116D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		84B8D45F25F8CF2C003116D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				847BDB3025F91184000CFE4B /* LocationManager.swift */,
+				846101E925FA5C6B00116E3A /* RequestHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846101EA25FA5C6B00116E3A /* RequestHelper.swift in Sources */,
+				847BDB3125F91184000CFE4B /* LocationManager.swift in Sources */,
 				84B8D44F25F89E25003116D4 /* ViewController.swift in Sources */,
 				84B8D44B25F89E25003116D4 /* AppDelegate.swift in Sources */,
 				84B8D44D25F89E25003116D4 /* SceneDelegate.swift in Sources */,
